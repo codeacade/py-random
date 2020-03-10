@@ -19,4 +19,8 @@ def walk2d(n):
   for i in range(n):
     result+=random.choice((1,-1))
   return result
+
+def xtree():
+  print(" "*(9-i) + "/" + "|"*i*2 + "\\")
+  ## MERRY XMASS ##
   

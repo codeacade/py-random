@@ -1,26 +1,26 @@
 import random
 #######################################
-# len - length(height) of ball paths
+# leng - length(height) of ball paths
 # run - number for random runs
 # symb - graphic symboe used to show ball path (default |)
 #####################################
 
-def rran(len,run,symb="|"):
+def rran(leng,run,symb="|"):
   
   # empty two dimentional table to collect results for all runs 
   #########################################
-  rtable = [[] for i in range(len)]
+  rtable = [[] for i in range(leng)]
   
   # loop for number or random runs
   ##################################
-  for i in range(ran):
+  for i in range(run):
   
     # ball starting from posion=0
     ################################
     bpos = 0
     # loop for length(height) of ball paths
     ###############################################
-    for j in range(len):
+    for j in range(leng):
       if bpos not in rtable[j]:
         rtable[j].append(bpos)
       bpos += random.choice((-1,0,1))

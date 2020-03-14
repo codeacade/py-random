@@ -9,4 +9,4 @@ def randsteps(n):
 def distrib(n,m):
   allr = [randsteps(n) for i in range(m)]  #randsteps(n) from above
   for i in range(min(allr), max(allr)+1):
-    print(str(i),"\t",str("|"*allrcount*i)))
+    print(str(i),"\t",str("|"*allr*count(i)))

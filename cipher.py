@@ -2,11 +2,10 @@ import random
 
 def rans():
   arr = list("abcdefghijklmnoprstuvwxyz")
-  brr = list("abcdefghijklmnoprstuvwxyz")
   
-  random.shuffle(brr)
+  random.shuffle(arr)
   ff = open("shuffle.txt","w")
-  ff.write("".join(brr))
+  ff.write("".join(arr))
   ff.close()
   
     

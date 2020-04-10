@@ -31,9 +31,8 @@ def newgg(file1, file2, element1, value1):
   source_tree = et.parse(file1)
   source_root = source_tree.getroot()
   
-  print("Old value: ")
-  # need to find validation metod for XML elements
-  source_root.find(element1).text
+  print("Old value: " + source_root.find(element1).text)
+  # need to find validation metod for XML element
   source_root.find(element1).text = value1
   print("New value: " + str(value1))
   print("Saved to new file: " + str(file2))

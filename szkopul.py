@@ -21,6 +21,25 @@ def xmlparse(xmlfile):
          for k in j:
            print("--" + k.tag + " - " + k.text)
         
+# Snippet to change individual XML element value
+# Still need to fing a way to check if element exist
+# @inprogress
+
+def newgg(file1, file2, element1, value1):
+  import xml.etree.ElementTree as et
+  
+  source_tree = et.parse(file1)
+  source_root = source_tree.getroot()
+  
+  print("Old value: ")
+  # need to find validation metod for XML elements
+  source_root.find(element1).text
+  source_root.find(element1).text = value1
+  print("New value: " + str(value1))
+  print("Saved to new file: " + str(file2))
+  source_tree.write(file2)
+  
+# end
     
     
 

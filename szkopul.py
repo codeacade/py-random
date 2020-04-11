@@ -28,11 +28,17 @@ def xmlparse(xmlfile):
 def newgg(file1, file2, element1, value1):
   import xml.etree.ElementTree as et
   
-  source_tree = et.parse(file1)
+  try:  # in case missing file1
+    source_tree = et.parse(file1)
+  except:
+    return "NO SUCH FILE: " + str(file1)
   source_root = source_tree.getroot()
   
-  print("Old value: " + source_root.find(element1).text)
-  # need to find validation metod for XML element
+  try:  # in case missing elemnt1 in file1
+    print("Old value: " + source_root.find(element1).text)
+  except:
+    return "NO SUCH ELEMENT: " + str(element1) + " IN FILE " + str(file1)
+  
   source_root.find(element1).text = value1
   print("New value: " + str(value1))
   print("Saved to new file: " + str(file2))

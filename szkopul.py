@@ -1,4 +1,5 @@
 # more exercices from szkopul.edu.pl
+# also mateuszrus.pl/matura-rozszerzona-z-informatyki/
 # count a number of letters in random string
 
 def lettercount(rstring):

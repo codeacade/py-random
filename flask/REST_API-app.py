@@ -37,5 +37,17 @@ def see_books_by_isbn(isbn):
       return {"bb":books[i]}
   return "ERROR "+str(book["isbn"])
 
+# ########### Alternative books: #########
+@aa.route("/bookz/<int:isbn>")
+def see_bookz_by_isbn(isbn):
+  for book in enumerate(books):
+    if book["isbn"] == isbn:
+      return_value = {
+        'name': book["name"],
+        'price': book["price"]
+      }
+    return return_value
+  return "ERROR "+str(book["isbn"])
+
 
 aa.run(debug=True)

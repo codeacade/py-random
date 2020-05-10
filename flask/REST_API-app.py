@@ -4,50 +4,44 @@
 # Building a REST API Using Python and Flask
 # #########################################################
 
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify, request
+import json
+
 aa=Flask(__name__)
 
-books = [
-  {
-  "name": "Green Eggs And Ham",
-  "price": 7.99,
-  "isbn": 12345,
-  },
-  {
-  "name": "The Cat In The Hat",
-  "price": 6.99,
-  "isbn": 67890
-  }
-]
+books = json.load(open('static/books_db.json'))
 
-@aa.route("/")
+@aa.route("/") # ##################### HOME
 def home():
-  return render_template('home.html')
+  return render_template('home.html', jtitle="Homepage")
   
-  
-@aa.route("/books")
+@aa.route("/form/", methods=["POST", "GET"]) # FORM-TEST
+def form():
+  return render_template('form.html', jtitle="Form Page")
+    
+@aa.route("/books/") # ############### SEE BOOKS
 def see_books():
-  return {'bb':books}
+  return jsonify({'bb':books})
+
+def validBookObject(bookObject): # ###### INPUT VALIDATION
+  try:
+    if(isinstance(bookObject, dict) and "name" in bookObject and "price" in bookObject and "isbn" in bookObject):
+      return True
+    else:
+      return False
+  except:
+    return False
+      
+@aa.route("/books/", methods=["POST"]) # ##### ADD BOOKS
+def add_book():    
+  return jsonify(request.get_json(force=True))
 
 
-@aa.route("/books/<int:isbn>")
+@aa.route("/books/<isbn>") # ####### BOOKS ISBN
 def see_books_by_isbn(isbn):
   for i,book in enumerate(books):
     if book["isbn"] == isbn:
-      return {"bb":books[i]}
-  return "ERROR "+str(book["isbn"])
-
-# ########### Alternative books: #########
-@aa.route("/bookz/<int:isbn>")
-def see_bookz_by_isbn(isbn):
-  for book in enumerate(books):
-    if book["isbn"] == isbn:
-      return_value = {
-        'name': book["name"],
-        'price': book["price"]
-      }
-    return return_value
-  return "ERROR "+str(book["isbn"])
-
+      return {"bb":books[i]} ## shorter version
+  return "ERROR. Serial Number " + str(book["isbn"] == isbn)
 
 aa.run(debug=True)

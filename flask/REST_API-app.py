@@ -4,9 +4,8 @@
 # Building a REST API Using Python and Flask
 # #########################################################
 
-from flask import Flask, render_template, jsonify, request
+from flask import Flask, render_template, jsonify, request, Response
 import json
-
 aa=Flask(__name__)
 
 books = json.load(open('static/books_db.json'))
@@ -32,10 +31,23 @@ def validBookObject(bookObject): # ###### INPUT VALIDATION
   except:
     return False
       
+
+      
 @aa.route("/books/", methods=["POST"]) # ##### ADD BOOKS
 def add_book():    
-  return jsonify(request.get_json(force=True))
-
+ 
+  request_data = request.get_json()
+  if(validBookObject(request_data)):
+    new_book = {
+        "name": request_data["name"],
+        "price": request_data["price"],
+        "isbn": request_data["isbn"]
+    } # ################################ DATA FILTERED
+    
+    books.insert(0, new_book)
+    return Response("", 201, mimetype='application/json')
+  else:
+    return "Wrogn Book!"
 
 @aa.route("/books/<isbn>") # ####### BOOKS ISBN
 def see_books_by_isbn(isbn):

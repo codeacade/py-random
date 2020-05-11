@@ -22,6 +22,7 @@ def form():
 def see_books():
   return jsonify({'bb':books})
 
+
 def validBookObject(bookObject): # ###### INPUT VALIDATION
   try:
     if(isinstance(bookObject, dict) and "name" in bookObject and "price" in bookObject and "isbn" in bookObject):
@@ -31,7 +32,6 @@ def validBookObject(bookObject): # ###### INPUT VALIDATION
   except:
     return False
       
-
       
 @aa.route("/books/", methods=["POST"]) # ##### ADD BOOKS
 def add_book():    
@@ -45,8 +45,14 @@ def add_book():
     } # ################################ DATA FILTERED
     
     books.insert(0, new_book)
-    return Response("", 201, mimetype='application/json')
+    respon = Response("", 201, mimetype='application/json')
+    respon.headers["Location"] = "/books/" + str(new_book['isbn'])
+    return respon
   else:
+    invBookError = {
+      "error":"OMG Invalid book!",
+      "helpMsg":"Seriusly, try again!"
+    }
     return "Wrogn Book!"
 
 @aa.route("/books/<isbn>") # ####### BOOKS ISBN

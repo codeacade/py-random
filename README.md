@@ -10,3 +10,5 @@
  https://www.alicja.it/2017/02/gra-w-pythonie-pygame-hello-world-1/
 # SQLite
   https://mgurg.github.io/sql/2020/04/10/SQL-podstawy.html
+# Practical SQLite
+  https://www.sqlitetutorial.net/sqlite-commands/

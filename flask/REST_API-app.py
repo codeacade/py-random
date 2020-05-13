@@ -18,7 +18,7 @@ def home():
 def form():
   return render_template('form.html', jtitle="Form Page")
     
-@aa.route("/books/") # ############### SEE BOOKS
+@aa.route("/books/") # ############### SEE BOOKS by GET
 def see_books():
   return jsonify({'bb':books})
 
@@ -35,7 +35,6 @@ def validBookObject(bookObject): # ###### INPUT VALIDATION
       
 @aa.route("/books/", methods=["POST"]) # ##### ADD BOOKS
 def add_book():    
- 
   request_data = request.get_json()
   if(validBookObject(request_data)):
     new_book = {
@@ -48,12 +47,14 @@ def add_book():
     respon = Response("", 201, mimetype='application/json')
     respon.headers["Location"] = "/books/" + str(new_book['isbn'])
     return respon
-  else:
+    
+  else:  # ### THIS DO IF NOT VALID REQUEST SENT
     invBookError = {
       "error":"OMG Invalid book!",
       "helpMsg":"Seriusly, try again!"
     }
-    return "Wrogn Book!"
+    respon = Response(json.dumps(invBookError), status=400, mimetype="applicatoni/json")
+    return respon
 
 @aa.route("/books/<isbn>") # ####### BOOKS ISBN
 def see_books_by_isbn(isbn):
@@ -61,5 +62,10 @@ def see_books_by_isbn(isbn):
     if book["isbn"] == isbn:
       return {"bb":books[i]} ## shorter version
   return "ERROR. Serial Number " + str(book["isbn"] == isbn)
+  
+  
+@aa.route("/books/<isbn>", methods=["PUT"])  # ####### UPDATE BOOK INFO
+def replace_book(isbn):
+  return request.get_json()
 
 aa.run(debug=True)

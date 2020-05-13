@@ -12,3 +12,4 @@
   https://mgurg.github.io/sql/2020/04/10/SQL-podstawy.html
 # Practical SQLite
   https://www.sqlitetutorial.net/sqlite-commands/
+  https://www.sqlitetutorial.net/sqlite-select/

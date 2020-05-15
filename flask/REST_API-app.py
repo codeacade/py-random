@@ -19,7 +19,7 @@ def form():
   return render_template('form.html', jtitle="Form Page")
     
 @aa.route("/books/") # ############### SEE BOOKS by GET
-def see_books():
+def book():
   return jsonify({'bb':books})
 
 
@@ -30,13 +30,14 @@ def validBookObject(bookObject): # ###### INPUT VALIDATION
     else:
       return False
   except:
-    return False
+    return False 
       
       
 @aa.route("/books/", methods=["POST"]) # ##### ADD BOOKS
 def add_book():    
   request_data = request.get_json()
-  if(validBookObject(request_data)):
+  if(validBookObject(request_data) and all([i["isbn"]!=request_data["isbn"] for i in books])): 
+    # ## UP ADDED NEW CONDITION - CHECK IF DUPLICATED ISBN?
     new_book = {
         "name": request_data["name"],
         "price": request_data["price"],

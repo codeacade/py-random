@@ -4,6 +4,9 @@
  random.choice((-1,1)) 
 # unload (reload) module
  reload(module_name)
+# reload in Python 3
+ from importlib import reload
+ reload(module_name)
 # one ball distribution in "n" steps
  sum([random.choice((-1,1)) for i in range(n)])
 # PyGame

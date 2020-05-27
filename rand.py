@@ -1,6 +1,7 @@
 ## Load it with command: import rand
 ## Run functions(methods) with command: rand.function_name(function_paramaters)
 ## In case rand.py changed, use command: reload(rand)
+## To reload in Python3 first run "from importlib import reload"
 
 import random
 def trun(n):

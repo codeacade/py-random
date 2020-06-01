@@ -5,6 +5,35 @@
 def lettercount(rstring):
  return {i:rsting.count(i) for i in rstring}  # iterate over the string and count number of each character
 
+# "Divide and conquer"exercise for random number of "1" and "0":
+
+#!/usr/bin/env pythoon
+
+import random as rr  # to create random number like: "111111110000"
+
+def st(n=10):             # size of random number (default 10)
+  r1 = int(rr.random()*n)
+  print(r1)
+  stt = "1"*r1 + "0"*(n-r1)
+  print(stt)              # shows random number like: "111111110000000"
+  # nn is starting point from where we search left and right for "1" or "0"
+  nn = 0
+  # nnn is a step of how far we go for next search, half of what left
+  nnn = int(n/2)
+  while abs(nnn) > 0:
+    if stt[nn + nnn] == "1":
+      print((nn + nnn), " - this is 1")
+      nn += nnn
+      nnn = int(abs(nnn)/2)
+    else:
+      print((nn + nnn), " - this is 0")
+      nn += nnn
+      nnn = int(abs(nnn)/2)*(-1)
+  nn+=int(stt[nn])
+  return nn,"-",stt[nn]
+
+
+
 
 # 3-level XML file parser using ElementTree:
 
@@ -15,7 +44,7 @@ def xmlparse(xmlfile):
   
   for i in rr:
     print(i.tag + " - " + i.text)
-    if len(i):
+    if len(i):    
       for j in i:
         print("-" + j.tag + " - " + j.text)
         if len(j):
@@ -23,7 +52,7 @@ def xmlparse(xmlfile):
            print("--" + k.tag + " - " + k.text)
         
 # Snippet to change individual XML element value
-# Still need to fing a way to check if element exist
+# Still need to find a way to check if element exist
 # @inprogress
 
 def newgg(file1, file2, element1, value1):

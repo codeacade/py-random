@@ -36,12 +36,26 @@ def ww2do(inp):
         ww2.append(i)
         break
 
-same = {}
+same = []
 def find(inp): # use data100 from line 23
-  for i in inp[:1000]:
+  for i in inp[:90000]:
     for l in i:
-      if i.count(l) > 2:
-        same[i] = (i.replace(l,"*"))
+      if i.count(l) > 1:
+        same.append(i.replace(l,"*"))
+        break
+
+sams = {}
+def fins(inp): # use data100 from line 23
+  for i in inp[:2000]:
+    for l in i:
+      if i.count(l) > 1:
+        sams[i] = (i.replace(l,"*"))
+        break
+
+def fond():
+  for i in range(70000):
+    if same.count(same[i]) > 5:
+      print(i, " - ", same[i], " - ", same.count(same[i]))
 
 
 

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charstet="utf-8">
+  <title>HELLO FLASK</title>
+  <link rel="textt.stylesheet" href="css/css">
+  <style>
+    * {font-family: "Ubuntu Condensed"; font-weight: 100;}
+    a:after {content: " >";}
+    a:hover:after {content: " >>";}
+    .bo {font-weight: 800;}
+  </style>
+</head>
+<body>
+  <h3>Header HELLO {{name}}</h3><hr>
+  <a href="/">Home</a>
+  <ul> {% for i in names %}
+    {% if "bold" in i %}
+    <li class="bo"> {{ i }} </li>
+    {% else %}
+    <li> {{ i }} </li>
+    {% endif %} {% endfor %}
+  </ul>
+<body>

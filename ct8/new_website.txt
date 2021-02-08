@@ -1,6 +1,6 @@
-1. Create SSH connection following email instructions
+1. Create SSH connection using email instructions
 1.1. Go to .virtualenvs directory in user root directory
-1.2. If in .virtualenvs directory create virtual enviroment with default settings (Python3.6) using run command:
+1.2. When in .virtualenvs directory create virtual enviroment with default settings (Python3.6) using run command:
 
 $ virtualenv new_enviroment_name
 
@@ -26,7 +26,37 @@ $ /usr/home/_username_here_/.virtualenvs/_new_enviroment_name_here_/bin/python
 
 
 
-3.  After you created virtual enviroment and added new website using virtual enviroment (in this order) you can add Flask / django / other python application. 
+3. After you created virtual enviroment and added new website using virtual enviroment (in this order) you can add Flask / django / other python application. 
+3.1. From user root direcotry go to "./domains/_your_domain_name_/public_python" directory.
+3.2. Dont go to "public" directory inside "public_python" as that's where html files will go - if you create index.html it have to go to "public" directory.
+3.3. Use "public_python" directory to save Flask's app.py or django_admin. DONT TRY TO RUN IT from terminal.
 
+
+4. TO RUN ANY PYTHON APPLICATON use Phusion Passenger. DONT TRY TO RUN IT FROM TERMINAL - there will be access error.
+4.1. Phusion Passenger settings for django:
+
+$ import sys, os
+$ sys.path.append(os.getcwd())
+$ os.environ['DJANGO_SETTINGS_MODULE'] = "_application_name_.settings"
+$ from django.core.wsgi import get_wsgi_application
+$ application = get_wsgi_application()
+
+4.2. Phusion Passenger settings for Flask:
+
+import sys, os
+sys.path.append(os.getcwd())
+from _application_name_ import flask_app as application    ##  flask_app must be same in Phusion Passenger and Flask code
+
+4.3. Sample basic code for Flask:
+
+$ from flask import Flask
+$ flask_app = Flask(__name__)
+$ 
+$ @flask_app.route("/")
+$ def hello():
+$      return "Hello World!"
+$ 
+$ if __name__ == "__main__":
+$      flask_app.run()
 
 ALSO - see websites (Polish): https://wiki.mydevil.net/Flask, https://wiki.mydevil.net/Flask, https://wiki.mydevil.net/Django

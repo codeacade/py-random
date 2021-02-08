@@ -10,11 +10,12 @@ $ virtualenv _new_enviroment_name_here_ -p /usr/local/bin/python3.9
 
 (/usr/local/bin/python4.9 is a path to exeutables on ct8 server. You cant run them but hosting will use them if selected)
 
-1.4. There is no need to activate virtual enviroment.
+1.4. Activate virtual enviroment and pip install all modules you need.
 
 
 
-2. Remove old websites (there is no opton to edit settings after website created)
+2.0. FTP copy all files you want to keep from existing website
+2. Remove existing websites (there is no opton to edit settings after website created)
 2.1. Create new website:
 2.1.1. Select [Advanced Settings]
 2.1.2. Select Python

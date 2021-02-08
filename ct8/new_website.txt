@@ -16,13 +16,13 @@ $ virtualenv _new_enviroment_name_here_ -p /usr/local/bin/python3.9
 
 2. Remove old websites (there is no opton to edit settings after website created)
 2.1. Create new website:
-2.2. Select [Advanced Settings]
-2.3. Select Python
-2.4. Select Advanced - Executable File, and type path to "python" file inside your virtial enviroment
+2.1.1. Select [Advanced Settings]
+2.1.2. Select Python
+2.1.3. Select Advanced - Executable File, and type path to "python" file inside your virtial enviroment
 
 $ /usr/home/_username_here_/.virtualenvs/_new_enviroment_name_here_/bin/python
 
-2.5. Select other options like domain name and Add new (or recreated) webiste
+2.1.4. Select other options like domain name and Add new (or recreated) webiste
 
 
 
@@ -30,6 +30,7 @@ $ /usr/home/_username_here_/.virtualenvs/_new_enviroment_name_here_/bin/python
 3.1. From user root direcotry go to "./domains/_your_domain_name_/public_python" directory.
 3.2. Dont go to "public" directory inside "public_python" as that's where html files will go - if you create index.html it have to go to "public" directory.
 3.3. Use "public_python" directory to save Flask's app.py or django_admin. DONT TRY TO RUN IT from terminal.
+
 
 
 4. TO RUN ANY PYTHON APPLICATON use Phusion Passenger. DONT TRY TO RUN IT FROM TERMINAL - there will be access error.
@@ -59,4 +60,4 @@ $
 $ if __name__ == "__main__":
 $      flask_app.run()
 
-ALSO - see websites (Polish): https://wiki.mydevil.net/Flask, https://wiki.mydevil.net/Flask, https://wiki.mydevil.net/Django
+ALSO - see websites (Polish): https://wiki.mydevil.net/Flask, https://wiki.mydevil.net/Django

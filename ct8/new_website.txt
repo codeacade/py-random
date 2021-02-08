@@ -34,7 +34,9 @@ $ /usr/home/_username_here_/.virtualenvs/_new_enviroment_name_here_/bin/python
 
 
 4. TO RUN ANY PYTHON APPLICATON use Phusion Passenger. DONT TRY TO RUN IT FROM TERMINAL - there will be access error.
-4.1. Phusion Passenger settings for django:
+4.1. From user root direcotry go to "./domains/_your_domain_name_/public_python" directory.
+4.2. Create passenger_wsgi.py file inside "public_python" folder.
+4.3. Add Phusion Passenger settings for django to passenger_wsgi.py file:
 
 $ import sys, os
 $ sys.path.append(os.getcwd())
@@ -42,13 +44,13 @@ $ os.environ['DJANGO_SETTINGS_MODULE'] = "_application_name_.settings"
 $ from django.core.wsgi import get_wsgi_application
 $ application = get_wsgi_application()
 
-4.2. Phusion Passenger settings for Flask:
+4.4. If you run Flask applicaion add Phusion Passenger settings for Flask to passenger_wsgi.py file:
 
 import sys, os
 sys.path.append(os.getcwd())
 from _application_name_ import flask_app as application    ##  flask_app must be same in Phusion Passenger and Flask code
 
-4.3. Sample basic code for Flask:
+4.5. Sample basic code for Flask:
 
 $ from flask import Flask
 $ flask_app = Flask(__name__)

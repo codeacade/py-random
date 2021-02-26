@@ -33,7 +33,7 @@ def this_is_decorator(pass_function_here):
     pass_function_here(pass_arguments_pattern_here)   #  THIS IS ALSO IMPORTANT
     # "decorated" function can be launched like above
   
-    peinr("THis is more from Decorator")    #  Decorator content after "decorated" function
+    print("THis is more from Decorator")    #  Decorator content after "decorated" function
   return this_is_only_wrapper        #  REMEMBER NO PARHENTASIS ()-NO
 
 ##  PART 2.Execution

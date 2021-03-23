@@ -19,6 +19,13 @@ greet("Suzie")  # this will return two lines:
                 # "This happens before..."
                 # "Hello Suzie"
 
+##  PART 2.1 Simpler Execution
+
+def greet(name):
+  print("Hello", name)
+  
+def = our_decorator(greet)  ## use this instead of @
+    
 ######################################### END
 
 ##  DECORATORS FOR DUMMIES ##

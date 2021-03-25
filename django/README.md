@@ -5,15 +5,17 @@ How to add static files to django?
 
 import os
 
+```
 INSTALLED_APPS = [
   ....
   'new_app.apps.NewappConfig'
   ...
   ]
-  
+  ```
+``` 
 STATIC_URL = '/static/'                                  ## this is by default
 STATICFILES_DIRS = [ os.path.join(BASE_DIR, "static"), ]  ## this is new
-
+```
 
 2) Create /static/<app_name>/ folder same way /templates/<app_name> is made
    Add css, jpg and other folders and files there

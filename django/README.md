@@ -19,6 +19,6 @@ STATICFILES_DIRS = [ os.path.join(BASE_DIR, "static"), ]  ## this is new
    Add css, jpg and other folders and files there
 
 3) In html template add:
-{% load static %}
+'''{% load static %}
 <link rel="stylesheet" href="{% static '/css/style.css' %}">
-<img src="{% static '/img/cat.jpg' %}">
+<img src="{% static '/img/cat.jpg' %}">'''

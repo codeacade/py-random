@@ -7,7 +7,7 @@ class TestSum(unittest.TestCase): # new class TestSum based on TestCase
 
 unittest.main()
 ```
-# assertEqual() methods:
+# unittest methods:
 ```
 Method                    What it checks
 assertEqual(a, b) 	       a == b
@@ -21,7 +21,7 @@ assertLess(a, b) 	        a < b
 assertIsInstance(a, b) 	  isinstance(a, b)
 assertRaises(exception, function, arguments) 	The function raises the exception when given the arguments
 ```
-
+https://docs.python.org/3/library/unittest.html#assert-methods
 # py-random
  import random
 # use random module 

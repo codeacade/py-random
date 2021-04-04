@@ -3,7 +3,7 @@
 # count a number of letters in random string
 
 def lettercount(rstring):
- return {i:rsting.count(i) for i in rstring}  # iterate over the string and count number of each character
+ return {i:rsting.count(i) for i in rstring}  # returns dictionary from string / count number of each character
 
 # "Divide and conquer"exercise for random number of "1" and "0":
 

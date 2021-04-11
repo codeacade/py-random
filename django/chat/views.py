@@ -17,7 +17,8 @@ def log_in(request):
     #    return redirect('./alert')
     log_info = 'Please type username and password'
     if request.method == 'POST':
-        log_info = f"{request.POST.get('username')} not valid"
+        ############################  GENIUS!!  ####  DEFAULT request.GET.get  ########
+        log_info = f"{request.POST.get('username', 'This')} is not valid username."
         form = AuthenticationForm(request, request.POST)
         if form.is_valid():
             print("----VALID----")

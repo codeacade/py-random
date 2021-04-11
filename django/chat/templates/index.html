@@ -1,0 +1,14 @@
+<!-- project/chat/templates/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CHAT APP</title>
+</head>
+<body>
+    <h1>CHAT APP</h1>
+    <form method="post" action="./log">
+        {% csrf_token %}
+        <input name="q">
+        <input type="submit">
+    </form>
+</body>

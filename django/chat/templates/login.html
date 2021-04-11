@@ -1,0 +1,21 @@
+<!-- project/chat/templates/login.html -->
+<html>
+  <head></head>
+  <body>
+    <h1>Chat login module</h1>
+
+    {% if not user.is_authenticated %}
+      <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Log in</button>
+      </form>
+    {% else %}
+      <p>Already logged in as {{ user.username }}</p>
+      <ul>
+        <li><a href="/chat">GO back!</a></li>
+      </ul>
+    {% endif %}
+    {{ info }}
+  </body>
+</html>

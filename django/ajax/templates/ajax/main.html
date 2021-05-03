@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf8">
+  <title>dj Ajax</title>
+
+</head>
+<body>
+  <form>
+    <input name="l1" style="width: 30px;">
+    <input name="l1" style="width: 30px;">
+    <button type="button" onclick="doCalc(this)">+</button>
+
+    <script>
+    inps = document.querySelectorAll('input');
+    doCalc = () => {
+        let Ajax = new XMLHttpRequest();  //Ajax is and Object
+
+        Ajax.onreadystatechange = () => {    // this part activate wuth any website changes
+            if(Ajax.readyState==4 && Ajax.status==200) console.log(Ajax.responseText)
+            // Ajax.readyState will count from 1 to 4 (done)
+        }
+            
+        Ajax.open('GET','calc?l1='+inps[0].value, true);   // this sends requests to ajax/const page
+        Ajax.send(null);
+    }
+
+    </script>
+</body>
+</html>

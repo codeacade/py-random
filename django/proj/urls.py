@@ -21,7 +21,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('proj', proj.views.proj_view),
     path('', include('photos.urls')),
-    path('chat/', include('chat.urls')),
+    path('chat/', include('chat.urls')),  ##  Remember about railing / in path
+    path('ajax/', include('ajax.urls')),  ##  Remember about railing / in path
 
 ]
 

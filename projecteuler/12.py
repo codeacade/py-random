@@ -18,7 +18,6 @@
 #######################################################################################
 ##  BRUT-FORCE SOLUTION
 
-print("----")
 primList = [2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97,101,103,107,109,113,127,131,137,139,149,151,157,163,167,173,179,181,191,193,197,199,211,223,227,229,233,239,241,251]
 
 def e(x):
@@ -26,10 +25,9 @@ def e(x):
   to500 = 0
   for i in range(1, 1 + x):
     tr += i
-    a = allfactors(tr)[0]
-    aa = allfactors(tr)[1]
-    if aa > to500:
-        to500 = aa
+    a = allfactors(tr)
+    if to500 < len(a):
+        to500 = len(a)
     print(i, tr, a, to500)
   return tr
 
@@ -41,9 +39,7 @@ def allfactors(x):
         lis.append(i**pow)
         x /= i
         pow += 1
-    if len(lis) > 100:
-        exit
-  return [lis, len(lis)]
+  return lis
 
 ##  e12(100)
  

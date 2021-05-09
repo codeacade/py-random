@@ -34,11 +34,11 @@ def e(x):
 def allfactors(x):
   lis = []
   for i in primList:
-    pow=1
-    while x%i == 0:
-        lis.append(i**pow)
-        x /= i
-        pow += 1
+    pow=1                         ##  Find factors that are powers of primes (4, 9 , 25)
+    while x%i == 0:               ##  Check for prime as factor
+        lis.append(i**pow)        ##  Add to list if prime of power (starts with 1)
+        x /= i                    ##  Decrease number by factor number
+        pow += 1                  ##  Increase power by 1
   return lis
 
 ##  e12(100)

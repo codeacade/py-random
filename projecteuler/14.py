@@ -12,7 +12,7 @@
 ##  It can be seen that this sequence (starting at 13 and finishing at 1) contains 10 terms. Although it has not been proved yet (Collatz Problem), it is thought that all starting numbers finish at 1.
 ##
 ##  Which starting number, under one million, produces the longest chain?
-############################################################
+##########################################################################
 ##  BRUT-FORCE SOLUTION (5 minuter os Coreduo)
 
 def all(w):     ## calculate Collatz sequence for given number

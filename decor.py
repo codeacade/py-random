@@ -24,8 +24,11 @@ greet("Suzie")  # this will return two lines:
 def greet(name):
   print("Hello", name)
   
-def = our_decorator(greet)  ## use this instead of @
-    
+greet = our_decorator(greet)  ## use this instead of @
+greet("John") ## call newly decorated function
+
+## new way of calling Decor (2023)
+our_decorator(greet)("John")     
 ######################################### END
 
 ##  DECORATORS FOR DUMMIES ##
